@@ -22,6 +22,25 @@ let FAKEDB = [{
 
 export default class PlanetController {
     constructor() {
+        this.router = express.Router()
+            .get('', this.getAll)
+            .get('/:planetId', this.getOne)
 
     }
+
+    defaultError(req, res, next) {
+        res.status(404).send("Route not found in planet controller")
+    }
+
+    getOne(arg0, getOne) {
+
+    }
+
+
+
+    getAll(req, res, next) {
+        res.send(FAKEDB)
+    }
+
+
 }
